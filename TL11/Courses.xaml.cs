@@ -28,7 +28,7 @@ public partial class Courses : ContentPage
     {
         if (CourseNameTxt.Text!="")
         {
-            db.AddCourse(new Models.Course { Name = CourseNameTxt.Text });
+            db.AddCourse(new Course { Name = CourseNameTxt.Text });
             GetItems();
         }
     }

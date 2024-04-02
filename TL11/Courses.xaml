@@ -8,7 +8,7 @@
     <VerticalStackLayout>
         <Entry x:Name="CourseNameTxt"></Entry>
         <Button x:Name="AddBtn" Text="Add" Clicked="AddBtn_Clicked"></Button>
-            <Button x:Name="EditBtn" Text="Edit" Clicked="EditBtn_Clicked" IsVisible="false"></Button>
+        <Button x:Name="EditBtn" Text="Edit" Clicked="EditBtn_Clicked" IsVisible="false"></Button>
             <CollectionView x:Name="CourseLst">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Course">

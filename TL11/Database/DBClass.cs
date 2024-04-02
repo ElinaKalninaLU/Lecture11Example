@@ -40,6 +40,7 @@ namespace TL11.Database
             {
                 conn = new SQLiteConnection(dbPath);
                 var r = conn.CreateTable<Course>();
+                CreateTestData();
                 return true;
             }
             catch (Exception ex) 
