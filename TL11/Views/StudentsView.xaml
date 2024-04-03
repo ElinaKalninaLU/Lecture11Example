@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:TL11.Models"
+              xmlns:vm="clr-namespace:TL11"
+             x:Class="TL11.StudentsView"
+             Title="Students">
+    <ContentPage.BindingContext>
+        <vm:StudentsViewModel/>
+    </ContentPage.BindingContext>
+     <ScrollView>
+        <VerticalStackLayout>
+            <VerticalStackLayout>
+            <Entry x:Name="NameTxt" Text="{Binding SV.Name}"></Entry>
+            <Entry x:Name="SurnameTxt" Text="{Binding SV.Surname}"></Entry>
+            <Button x:Name="AddEditBtn" Command ="{Binding SV.AddCommand}" Text="Save"></Button>
+            </VerticalStackLayout>
+            <CollectionView x:Name="StudentLst" ItemsSource="{Binding SList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:StudentViewModel">
+                        <Grid ColumnDefinitions="*,*,  Auto, Auto" Padding="20">
+                            <Label Text="{Binding Name}"></Label>
+                            <Label Grid.Column="1" Text="{Binding Surname}"></Label>
+                            <Button Grid.Column="2"  Text="Edit" Command="{Binding EditCommand}" CommandParameter="{Binding}"></Button>
+                            <Button Grid.Column="3"  Text="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding}"></Button>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

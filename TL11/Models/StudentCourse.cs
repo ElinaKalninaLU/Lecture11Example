@@ -1,19 +1,20 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite;
 
 namespace TL11.Models
 {
-    public class Course
+    [Table("Student_course")]
+    public class StudentCourse
     {
         [PrimaryKey, AutoIncrement] 
         public int ID { get; set; }
-        [MaxLength(100)]
-        public string Name { get; set; }
 
-        public override string? ToString() => Name;
+        public int Student_ID { get; set; }
+
+        public int Course_ID {  get; set; }
     }
 }

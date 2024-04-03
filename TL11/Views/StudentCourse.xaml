@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TL11.StudentCourse"
+             xmlns:models="clr-namespace:TL11.Models"
+             Title="StudentCourse" Appearing="ContentPage_Appearing">
+    <VerticalStackLayout>
+        <Picker x:Name="CourseCbo" SelectedIndexChanged="CourseCbo_SelectedIndexChanged"></Picker>
+        <Grid ColumnDefinitions="*, Auto">
+            <Picker Grid.Column="0" x:Name="StudentCbo"></Picker>
+            <Button Grid.Column="1" x:Name="AddStudentBtn" Text="Add" Clicked="AddStudentBtn_Clicked"></Button>
+        </Grid>
+        <CollectionView x:Name="StudentLst" ItemsSource="{Binding SList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Student">
+                    <Grid ColumnDefinitions="*,*,  Auto, Auto" Padding="20">
+                        <Label Text="{Binding Name}"></Label>
+                        <Label Grid.Column="1" Text="{Binding Surname}"></Label>
+                        <Button Grid.Column="3"  Text="Delete" Clicked="Button_Clicked" CommandParameter="{Binding}"></Button>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

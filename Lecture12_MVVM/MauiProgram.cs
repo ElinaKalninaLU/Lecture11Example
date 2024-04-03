@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using TL11.Database;
 
-namespace TL11
+namespace Lecture12_MVVM
 {
     public static class MauiProgram
     {
@@ -15,14 +14,9 @@ namespace TL11
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            builder.Services.AddSingleton<DBClass>();
-            var serviceProvider = builder.Services.BuildServiceProvider();
-
-            // Set the service provider in the ServiceProviderLocator
-            ServiceProviderLocator.ServiceProvider = serviceProvider;
 
 #if DEBUG
-            builder.Logging.AddDebug();
+    		builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
